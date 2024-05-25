@@ -40,6 +40,7 @@ const Cliente = sequelize.define('cliente', {
     },
     idOperador : {
         type : DataTypes.INTEGER,
+        allowNull : false,
         references : {
             model : Operador,
             key : 'idOperador'
@@ -50,4 +51,10 @@ const Cliente = sequelize.define('cliente', {
 
 
 }, {freezeTableName : true});
+// Relacion 1 a 1 
+//Cliente.belongsTo(Operador, {foreingkey: 'idOperador', as: 'cliente'});
+
+//relacion 1 a muchos
+//Operador.hasMany(Cliente, {foreingkey: 'idOperador', as: 'cliente'})
+
 module.exports = Cliente;
